@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Todo App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .ui.segment {
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui raised very padded text container segment">
+        <h2 class="ui center aligned header">Login to Todo App</h2>
+
+        {% if error %}
+            <div class="ui red message">{{ error }}</div>
+        {% endif %}
+
+        <form class="ui form" method="POST">
+            {% csrf_token %}
+            <div class="field">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter Username" required>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <button class="ui blue button fluid" type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
